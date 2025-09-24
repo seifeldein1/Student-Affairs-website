@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Assignment</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="icon" href="{% static 'icons/Education-rafiki.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'forms.css' %}">
+</head>
+<body>
+    <section class="Home" id="home">
+        <nav>
+            <h2>student <span>Affairs</span></h2>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}" class="page1"><i class="ri-home-4-fill"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#home">about us</a>
+                </li>
+            </ul>
+            <a href="#home" class="menu"><i class="ri-menu-line"></i></a>
+        </nav>
+        <h1>Welcome to the Department page. In this page, you can assign a Department for a Student.</h1>
+
+        <form id="studentForm" action="{% url 'department' %}" method="post">
+            {% csrf_token %}
+            <!-- Search By ID -->
+            <label for="sID">Student ID</label>
+            <input type="text" id="sID" name="student_id" required> <br><br>
+          
+            <!-- List to choose a Department -->
+            <label for="dep">Select Department</label>
+            <select name="department" id="dep">
+              <option value="General" class="item">General</option>
+              <option value="CS" class="item">CS</option>
+              <option value="IS" class="item">IS</option>
+              <option value="AI" class="item">AI</option>
+              <option value="DS" class="item">DS</option>
+              <option value="IT" class="item">IT</option>
+            </select>
+            <br><br>
+            <button id="button" value="submit">Set Department</button>
+          </form>
+          
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+          
+        <script src="{% static 'department.js' %}"></script>
+    </section>
+    
+</body>
+</html>

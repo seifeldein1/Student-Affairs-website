@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!---<link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'Status.css' %}">
+    <link rel="icon" href="{% static 'icons/Education-rafiki.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">--->
+</head>
+
+
+<body>
+    <section class="Home" id="home">
+        <nav>
+            <h2>student <span class = "ss">Affairs</span></h2>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}" class="page1"><i class="ri-home-4-fill"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#home">about us</a>
+                </li>
+            </ul>
+            <a href="#home" class="menu"><i class="ri-menu-line"></i></a>
+        </nav>
+     
+
+   
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Status</td>
+                <td>UPDATE</td>
+            </tr>
+        </thead>
+        <!---<tbody id="tbody"></tbody>?-->
+        {% for student in students %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.status}}</td>
+            <td><a href="{% url 'update' student.id %}"><i></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <!--<button onclick="showData()" class="but">View status</button>>-->
+
+   <!---<script src="{% static 'view.js' %}"></script>--->
+</section>
+</body>
+</html>

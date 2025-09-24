@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="icon" href="{% static 'icons/Education-rafiki.png' %}">
+	<link rel="stylesheet" href="{% static 'Add.css' %}">
+	<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>->-->
+	'<!--<script src="{% static 'Jquery.js' %}"></script>->-->
+	<title>Add Student</title>
+</head>
+<body>
+	<section class="Home" id="home">
+        <nav>
+            <h2 class="aff">student <span>Affairs</span></h2>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}" class="page1"><i class="ri-home-4-fill"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#home">about us</a>
+                </li>
+            </ul>
+            <a href="#home" class="menu"><i class="ri-menu-line"></i></a>
+        </nav>
+  	<h1>Add Student Information</h1>
+	  <form id="studentForm" method="post" action="{% url 'add_student' %}">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="submit" type="submit" value="Submit">
+	  </form>
+	  
+	<!--<form id="studentForm">
+		<label for="id">ID:</label>
+		<input type="text" id="id" name="id"><br><br>
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+
+		<label for="dob">Date of Birth:</label>
+		<input type="date" id="dob" name="dob"><br><br>
+
+		<label for="gpa">GPA:</label>
+		<input type="text" pattern="(^[0-3]?(\.[0-9]{1,2})?$)|(^4\.0{0,2}$)" maxlength="4"  id="gpa" name="gpa"><br><br>
+
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select><br><br>
+		<label for="status">Status:</label>
+		<select id="status" name="status">
+			<option value="active">active</option>
+			<option value="inactive">inactive</option>
+		</select><br><br>
+
+		<label for="level">Level:</label>
+		<input type="text" id="level" name="level"><br><br>
+
+		<label for="department">Department:</label>
+		<select id="department" name="department">
+			<option value="General">General</option>
+			<option value="AI">AI</option>
+			<option value="CS">CS</option>
+			<option value="IS">IS</option>
+			<option value="IT">IT</option>
+			<option value="DS">DS</option>
+		</select><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="mobile">Mobile Number:</label>
+		<input type="tel" id="mobile" name="mobile"><br><br>
+
+		<input class="submit" type="submit" value="Submit">
+	</form>->-->
+	</section>
+	<!--<script src="{% static 'Add.js'%}"></script>-->
+	{% if message %}
+<script>
+    function showAlert(message, alertType) {
+        if (alertType === "success") {
+			message = message.replace(/&#x27;/g, "'");
+            alert("Success :)  "+ message);	
+        } else if (alertType === "danger") {
+			message = message.replace(/&#x27;/g, "'");
+            alert("Error :(  " + message+ " , Make sure that GPA is between 0 and 4 ");
+        }
+    }
+
+    showAlert("{{ message }}", "{{ alert_type }}");
+</script>
+{% endif %}
+
+
+
+</body>
+</html>

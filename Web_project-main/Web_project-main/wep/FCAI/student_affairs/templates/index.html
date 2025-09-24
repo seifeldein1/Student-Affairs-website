@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student affairs</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="icon" href="{% static 'icons/Education-rafiki.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <section class="Home" id="home">
+        <nav>
+            <h2>student <span>Affairs</span></h2>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}" class="page1"><i class="ri-home-4-fill"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#home">about us</a>
+                </li>
+            </ul>
+            <a href="#home" class="menu"><i class="ri-menu-line"></i></a>
+        </nav>
+        <div class="content">
+            <div class="container_texts">
+                <h2>Welcome To</h2>
+                <h1> FCAI Student <span> Affairs</span> </h1>
+            </div>
+            <div class="container_imags">
+                <img src="{% static 'icons/Happy student-bro.png' %}" alt="" class="pic">
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="container_imgs">
+            <img src="{% static 'icons/About us page-pana.png' %}" alt="" class="about_us">
+        </div>
+        <div class="container_texts">
+            <h1>About <span>Us</span></h1>
+            <h5><span class="ss">Student_</span>Affairs</h5>
+            <p>
+                Our system provides some services, so it can add a new student,
+                modify the data of an existing student on the system, delete student data,
+                search for active students, display all active and inactive students,
+                or change the status of a student
+            </p>
+        </div>
+    </section>
+    <section class="services">
+        <h1 class="center_text"><span>Our</span> Services</h1>
+        <div class="sr">
+            <a href="Add_student_page.html">
+                <img src="{% static 'icons/Add tasks-amico.png' %}" alt="" class="pic">
+                <figcaption class="caption">Add student</figcaption>
+            </a>
+            <a href="search1.html">
+                <img src="{% static 'icons/Search engines-amico (1).png' %}" alt="" class="pic">
+                <figcaption class="caption">search for</figcaption>
+            </a>
+            <a href="Update_student_page.html">
+                <img src="{% static 'icons/update installation-pana.png' %}" alt="" class="pic">
+                <figcaption class="caption">update info</figcaption>
+            </a>
+            <a href="departement_assignment.html">
+                <img src="{% static 'icons/Select-amico.png' %}" alt="" class="pic">
+                <figcaption class="caption">select departement</figcaption>
+            </a>
+            <a href="Status.html">
+                <img src="{% static 'icons/Presentation-amico.png' %}" alt="">
+                <figcaption class="caption">Show Data</figcaption>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

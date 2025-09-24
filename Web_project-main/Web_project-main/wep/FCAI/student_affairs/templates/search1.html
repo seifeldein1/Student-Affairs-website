@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="{% static 'searchForm.css' %}">
+  <link rel="icon" href="{% static 'icons/Education-rafiki.png' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css%22%3E">
+</head>
+<body>
+    <section class="Home" id="home">
+        <nav>
+            <h2>student <span class="ss">Affairs</span></h2>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}" class="page1"><i class="ri-home-4-fill"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#home">about us</a>
+                </li>
+            </ul>
+            <a href="#home" class="menu"><i class="ri-menu-line"></i></a>
+        </nav>
+      <h5 class="msg"> Welcome to <span class="ss">Search page</span>, In this Page you can Search for <span class="ss">active students</span> by their names </h5>
+      <div class="search-form">
+        <form id="search-form" method="GET">
+          <input type="text" name="name" placeholder="Search for active student">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <img src="{% static 'icons/Search engines-amico (1).png' %}" alt="" class="pic">
+      <div class="c"></div>
+
+      {% if results %}
+      <table>
+        <thead>
+          <th class="head">Name</th>
+          <th class="head">Status</th>
+        </thead>
+        <tbody id="tbody">
+          {% for result in results %}
+          <tr>
+            <td>{{ result.name }}</td>
+            <td>{{ result.status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      {% if searchname %}
+      <p>No student found.</p>
+      {% endif %}
+      {% endif %}
+
+      <script src="{% static 'search.js' %}"></script>
+    </section>
+  </body>
+</html>
